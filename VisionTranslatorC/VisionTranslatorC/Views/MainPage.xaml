@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="VisionTranslatorC.Views.MainPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="Result" Source="icon.png"  Grid.Row="0" Grid.ColumnSpan="2"  BackgroundColor="#F0F0F0"></Image>
+
+
+                    <Button x:Name="Capture" Clicked="Capture_OnClicked" Text="Capture" Grid.Row="1" Grid.Column="0"></Button>
+                    <Button x:Name="Analyse" Text="Analyse" Grid.Row="1" Grid.Column="1" Clicked="Analyse_OnClicked"></Button>
+                    <Button x:Name="Translate" Text="Translate" Grid.Row="2" Grid.Column="0" Clicked="Translate_OnClicked"></Button>
+                    <Picker BackgroundColor="Transparent" SelectedIndexChanged="Lang_OnSelectedIndexChanged" x:Name="lang" HorizontalOptions="FillAndExpand" Title="Select Language" Grid.Row="2" Grid.Column="1">
+                        <Picker.Items>
+                            <x:String>English</x:String>
+                            <x:String>German</x:String>
+                            <x:String>Italian</x:String>
+                            <x:String>Greek</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Επιτυχημένες Μεταφράσεις (Session):" Grid.Row="3" Grid.Column="0"/>
+                    <Label x:Name="Confidence" Grid.Row="3" Grid.Column="0"/>
+                    <ScrollView Grid.Row="4" Grid.Column="0">
+                        <Label x:Name="final" Text="Recognized text Will be appear here..." TextColor="Black" FontSize="Large"></Label>
+                    </ScrollView>
+                    <ScrollView  Grid.Column="1" Grid.Row="4">
+                        <Label x:Name="translation" Grid.Column="1" Grid.Row="4" TextColor="Black" FontSize="Large"></Label>
+                    </ScrollView>
+                   
+                   
+                </Grid>
+               
+               
+                
+            </StackLayout>
+
+        </ScrollView>
+      
+       
+    </ContentPage.Content>
+</ContentPage>
